@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="DroneMQTT_DJISDK_iOS_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXm-Ia-LGy">
+                                <rect key="frame" x="378" y="181" width="140" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Aiq-bq-RK0"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="OPEN"/>
+                                <connections>
+                                    <segue destination="uqt-bX-thA" kind="show" id="bz9-KJ-1CV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-sr-SUK">
+                                <rect key="frame" x="73" y="32" width="750" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJI SDK Version:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQa-GJ-0Wx">
+                                <rect key="frame" x="384" y="345" width="128" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Model:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5Q-CX-POA">
+                                <rect key="frame" x="281" y="139" width="334" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i5Q-CX-POA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9SX-sA-D3O"/>
+                            <constraint firstItem="RQa-GJ-0Wx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9xZ-su-0eE"/>
+                            <constraint firstItem="g5N-sr-SUK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="I16-eX-Wk8"/>
+                            <constraint firstItem="eXm-Ia-LGy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Oei-3k-7wi"/>
+                            <constraint firstItem="eXm-Ia-LGy" firstAttribute="top" secondItem="i5Q-CX-POA" secondAttribute="bottom" constant="21" id="Ydd-dy-Obx"/>
+                            <constraint firstItem="eXm-Ia-LGy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ij6-lR-wTl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RQa-GJ-0Wx" secondAttribute="bottom" constant="27" id="jaJ-K3-uLY"/>
+                            <constraint firstItem="g5N-sr-SUK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="saT-sH-D92"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="modelLabel" destination="i5Q-CX-POA" id="F95-hw-pDL"/>
+                        <outlet property="openButton" destination="eXm-Ia-LGy" id="Krq-XN-xtU"/>
+                        <outlet property="statusLabel" destination="g5N-sr-SUK" id="UUv-Jr-lVf"/>
+                        <outlet property="versionLabel" destination="RQa-GJ-0Wx" id="Cfq-k0-j0t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="27.455357142857142" y="-43.478260869565219"/>
+        </scene>
+        <!--Default Layout View Controller-->
+        <scene sceneID="jk8-fq-wh2">
+            <objects>
+                <viewController id="uqt-bX-thA" customClass="DefaultLayoutViewController" customModule="DroneMQTT_DJISDK_iOS_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OlH-4U-SSQ">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJq-IY-lvM">
+                                <rect key="frame" x="33" y="8" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ysa-Wa-MHI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="❌"/>
+                                <connections>
+                                    <action selector="close" destination="uqt-bX-thA" eventType="touchUpInside" id="hep-Bb-u1Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="67r-kf-MQ4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="67r-kf-MQ4" firstAttribute="leading" secondItem="QJq-IY-lvM" secondAttribute="leading" constant="11" id="81p-qp-jtx"/>
+                            <constraint firstItem="QJq-IY-lvM" firstAttribute="width" secondItem="QJq-IY-lvM" secondAttribute="height" multiplier="1:1" id="Uco-hj-muG"/>
+                            <constraint firstItem="QJq-IY-lvM" firstAttribute="top" secondItem="67r-kf-MQ4" secondAttribute="top" constant="8" id="b1h-LG-JjX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="m2H-qE-HBr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hgq-4Y-Sfx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="814.95535714285711" y="-43.478260869565219"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
