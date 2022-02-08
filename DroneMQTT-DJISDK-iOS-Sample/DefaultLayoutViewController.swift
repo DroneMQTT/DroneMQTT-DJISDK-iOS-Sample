@@ -13,65 +13,63 @@ import Moscapsule
 class DefaultLayoutViewController: DUXDefaultLayoutViewController {
 
     let host = "[assigned-domain].dronemqtt.com"
-    let port: Int32 = 1883
     let username = "[mqtt username]"
     let password = "[mqtt password]"
-    let topic = "dronemqtt/test"
-    let aircraftName = "djidrone"
-    var mqttClient: MQTTClient?
+    let port: Int32 = 1883
+    let topic = "dronemqtt/state"
+    let timerInterval = 0.1
+    let telemetry = MqttTelemetry()
+    var telemetryManager: TelemetryManager?
+    var timer: Timer?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent;
     }
-    
-    @IBAction func close () {
-        if self.mqttClient != nil {
-            self.mqttClient?.disconnect(nil)
-        }
 
-        self.dismiss(animated: true) {
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // MQTT config
-        let clientId = self.randomString(of: 10)
-        let mqttConfig = MQTTConfig(clientId: clientId, host: self.host, port: self.port, keepAlive: 60)
-        mqttConfig.mqttAuthOpts = MQTTAuthOpts(username: self.username, password: self.password)
-        mqttConfig.onConnectCallback = { returnCode in
-            NSLog("Return Code is \(returnCode.description)")
-        }
-        self.mqttClient = MQTT.newConnection(mqttConfig)
-
-        let service = ProductCommunicationService.shared
-
-        if let fc = service.connectedProduct.flightController {
+        
+        self.telemetryManager = TelemetryManager(host:host, port:port, username: username, password: password)
+        
+        if let fc = DJISDKUtil.fetchAircraft()?.flightController {
             fc.delegate = self
         }
+        
+        if let gimbal = DJISDKUtil.fetchGimbal() {
+            gimbal.delegate = self
+        }
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: self.timerInterval, repeats: true, block: self.sendMQTT)
+    }
+
+    func sendMQTT(timer: Timer) {
+        self.telemetryManager?.send(topic: self.topic, telemetry: self.telemetry)
     }
     
-    func randomString(of length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var s = ""
-        for _ in 0 ..< length {
-            s.append(letters.randomElement()!)
+    @IBAction func close () {
+        if self.telemetryManager != nil {
+            self.telemetryManager?.close()
         }
-        return s
+
+        if self.timer != nil {
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+        
+        self.dismiss(animated: true)
     }
 }
 
 extension DefaultLayoutViewController: DJIFlightControllerDelegate {
  
     func flightController(_ fc: DJIFlightController, didUpdate state: DJIFlightControllerState) {
-        if let location = state.aircraftLocation {
-            let alt = location.altitude
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
+        self.telemetry.fcState = state
+    }
+}
 
-            let payload = String(format: "%@,%f,%f,%f", self.aircraftName, alt, lat, lon)
-            self.mqttClient?.publish(string: payload, topic: self.topic, qos: 1, retain: false, requestCompletion: nil)
-        }
+extension DefaultLayoutViewController: DJIGimbalDelegate {
+    
+    func gimbal(_ gimbal: DJIGimbal, didUpdate state: DJIGimbalState) {
+        self.telemetry.gimbalState = state
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EDA1DD47D5B9E0627D86D1D /* Pods_DroneMQTT_DJISDK_iOS_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C738AC772CD79BE83C38E8FE /* Pods_DroneMQTT_DJISDK_iOS_Sample.framework */; };
+		E927B41727A70D1A00E5F6AE /* DJISDKUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927B41627A70D1A00E5F6AE /* DJISDKUtil.swift */; };
 		E99628B52758CBF9005DFCBA /* SimulatorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99628B42758CBF9005DFCBA /* SimulatorControl.swift */; };
 		E9F924352754D75600DA3941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F924342754D75600DA3941 /* AppDelegate.swift */; };
 		E9F924372754D75600DA3941 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F924362754D75600DA3941 /* SceneDelegate.swift */; };
@@ -17,12 +18,15 @@
 		E9F9244A2754DB3800DA3941 /* ProductCommunicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F924492754DB3800DA3941 /* ProductCommunicationService.swift */; };
 		E9F9244C275604AE00DA3941 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F9244B275604AE00DA3941 /* MainViewController.swift */; };
 		E9F9244E2756211800DA3941 /* DefaultLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F9244D2756211800DA3941 /* DefaultLayoutViewController.swift */; };
+		E9FE3FBB27A7BAB000EDB392 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FE3FBA27A7BAB000EDB392 /* Util.swift */; };
+		E9FE3FBD27A7C37900EDB392 /* TelemetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FE3FBC27A7C37900EDB392 /* TelemetryManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		996DAA426010D4DF51CAD5E6 /* Pods-DroneMQTT-DJISDK-iOS-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneMQTT-DJISDK-iOS-Sample.debug.xcconfig"; path = "Target Support Files/Pods-DroneMQTT-DJISDK-iOS-Sample/Pods-DroneMQTT-DJISDK-iOS-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		B48D618FF49E5E613183CA58 /* Pods-DroneMQTT-DJISDK-iOS-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroneMQTT-DJISDK-iOS-Sample.release.xcconfig"; path = "Target Support Files/Pods-DroneMQTT-DJISDK-iOS-Sample/Pods-DroneMQTT-DJISDK-iOS-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		C738AC772CD79BE83C38E8FE /* Pods_DroneMQTT_DJISDK_iOS_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroneMQTT_DJISDK_iOS_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E927B41627A70D1A00E5F6AE /* DJISDKUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJISDKUtil.swift; sourceTree = "<group>"; };
 		E99628B22758AC3B005DFCBA /* OpenSSL.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OpenSSL.xcframework; path = "Pods/OpenSSL-Universal/Frameworks/OpenSSL.xcframework"; sourceTree = "<group>"; };
 		E99628B42758CBF9005DFCBA /* SimulatorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorControl.swift; sourceTree = "<group>"; };
 		E9F924312754D75600DA3941 /* DroneMQTT-DJISDK-iOS-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DroneMQTT-DJISDK-iOS-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +40,8 @@
 		E9F9244B275604AE00DA3941 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E9F9244D2756211800DA3941 /* DefaultLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLayoutViewController.swift; sourceTree = "<group>"; };
 		E9F9244F2756296C00DA3941 /* DJIWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DJIWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9FE3FBA27A7BAB000EDB392 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		E9FE3FBC27A7C37900EDB392 /* TelemetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E927B41527A70D0400E5F6AE /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E927B41627A70D1A00E5F6AE /* DJISDKUtil.swift */,
+				E9FE3FBA27A7BAB000EDB392 /* Util.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		E9F924282754D75600DA3941 = {
 			isa = PBXGroup;
 			children = (
@@ -90,10 +105,12 @@
 		E9F924332754D75600DA3941 /* DroneMQTT-DJISDK-iOS-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				E927B41527A70D0400E5F6AE /* Util */,
 				E9F924482754DADA00DA3941 /* ProductCommunication */,
 				E9F924342754D75600DA3941 /* AppDelegate.swift */,
 				E9F9244B275604AE00DA3941 /* MainViewController.swift */,
 				E9F9244D2756211800DA3941 /* DefaultLayoutViewController.swift */,
+				E9FE3FBC27A7C37900EDB392 /* TelemetryManager.swift */,
 				E9F924362754D75600DA3941 /* SceneDelegate.swift */,
 				E9F9243A2754D75600DA3941 /* Main.storyboard */,
 				E9F9243D2754D75700DA3941 /* Assets.xcassets */,
@@ -228,7 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9F9244A2754DB3800DA3941 /* ProductCommunicationService.swift in Sources */,
+				E927B41727A70D1A00E5F6AE /* DJISDKUtil.swift in Sources */,
 				E9F924352754D75600DA3941 /* AppDelegate.swift in Sources */,
+				E9FE3FBD27A7C37900EDB392 /* TelemetryManager.swift in Sources */,
+				E9FE3FBB27A7BAB000EDB392 /* Util.swift in Sources */,
 				E9F924372754D75600DA3941 /* SceneDelegate.swift in Sources */,
 				E9F9244E2756211800DA3941 /* DefaultLayoutViewController.swift in Sources */,
 				E99628B52758CBF9005DFCBA /* SimulatorControl.swift in Sources */,
@@ -403,7 +423,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dronemqtt.DroneMQTT-DJISDK-iOS-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.reddotdrone.DroneMQTT-DJISDK-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -441,7 +461,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dronemqtt.DroneMQTT-DJISDK-iOS-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.reddotdrone.DroneMQTT-DJISDK-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
